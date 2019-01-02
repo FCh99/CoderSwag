@@ -1,7 +1,6 @@
 package udemy.fausto.com.coderswag.Adapters
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +11,10 @@ import kotlinx.android.synthetic.main.category_list_item.view.*
 import udemy.fausto.com.coderswag.Model.Category
 import udemy.fausto.com.coderswag.R
 
-class CategoryAdapter(context: Context, categories: List<Category> ): BaseAdapter() {
+class CategoryAdapter(val context: Context, val categories: List<Category> ): BaseAdapter() {
 
-    val context = context
-    val categories = categories
+    //val context = context
+    //val categories = categories
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
@@ -25,7 +24,7 @@ class CategoryAdapter(context: Context, categories: List<Category> ): BaseAdapte
         if (convertView == null) {
             categoryView = LayoutInflater.from(context).inflate(R.layout.category_list_item, null)
             holder = ViewHolder()
-            holder.categoryImage = categoryView.categoryimage
+            holder.categoryImage = categoryView.categoryImage
             holder.categoryName = categoryView.categoryName
             println("---> I exist for the first time ¡")
             categoryView.tag = holder
