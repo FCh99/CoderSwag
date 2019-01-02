@@ -22,16 +22,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = CategoryRecycleAdapter(this, DataService.categories)
+        adapter = CategoryRecycleAdapter(this, DataService.categories) {category ->
+            //println(category.title)
+
+
+
+            }
+
         categoryListView.adapter = adapter
 
-        /*
-        categoryListView.setOnItemClickListener { adapterView, view, i, l ->
-            val category = DataService.categories[i]
-            Toast.makeText(this, "you clicked ${category.title} cell", Toast.LENGTH_SHORT).show()
 
-        }
-        */
         val layoutManger = LinearLayoutManager(this)
         categoryListView.layoutManager = layoutManger
         categoryListView.setHasFixedSize(true)
