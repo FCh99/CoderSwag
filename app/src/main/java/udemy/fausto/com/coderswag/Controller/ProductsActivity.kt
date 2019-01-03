@@ -1,5 +1,6 @@
 package udemy.fausto.com.coderswag.Controller
 
+import android.content.res.Configuration
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
@@ -24,7 +25,15 @@ class ProductsActivity : AppCompatActivity() {
 
         adapter = ProductsAdapter(this, DataService.getProducts(categoryType))
 
-        val layoutManager = GridLayoutManager(this, 2)
+        var spanCount = 2
+        val orientation = resources.configuration.orientation
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            spanCount = 3
+        }
+
+
+
+        val layoutManager = GridLayoutManager(this, spanCount)
         productsListView.layoutManager = layoutManager
         productsListView.adapter = adapter
 
