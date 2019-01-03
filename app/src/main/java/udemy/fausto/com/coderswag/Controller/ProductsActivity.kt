@@ -13,6 +13,6 @@ class ProductsActivity : AppCompatActivity() {
 
         val categoryType = intent.getStringExtra(EXTRA_CATEGORY)
         println("-------->")
-        println(categoryType)
+        //println(categoryType)
     }
 }
