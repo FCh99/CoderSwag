@@ -38,6 +38,7 @@ class ProductsActivity : AppCompatActivity() {
             spanCount = 3
         }
         
+        // Intent to Detail
 
 
 

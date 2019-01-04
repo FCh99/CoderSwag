@@ -9,12 +9,12 @@ import kotlinx.android.synthetic.main.product_list_item.view.*
 import udemy.fausto.com.coderswag.Model.Product
 import udemy.fausto.com.coderswag.R
 
-class ProductsAdapter(val context: Context, val products: List<Product> ) : RecyclerView.Adapter<ProductsAdapter.ProductHolder>() {
+class ProductsAdapter(val context: Context, val products: List<Product>, val itemClick: (Product) -> Unit ) : RecyclerView.Adapter<ProductsAdapter.ProductHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
 
         val view = LayoutInflater.from(context).inflate(R.layout.product_list_item, parent, false)
-        return ProductHolder(view)
+        return ProductHolder(view, itemClick)
 
 
     }
@@ -28,7 +28,7 @@ class ProductsAdapter(val context: Context, val products: List<Product> ) : Recy
     }
 
 
-    inner class ProductHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ProductHolder(itemView: View, val itemClick: (Product) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
         val productImage = itemView.productImage!!
         val productName = itemView.productName!!
@@ -40,6 +40,8 @@ class ProductsAdapter(val context: Context, val products: List<Product> ) : Recy
             productImage.setImageResource(resourceId)
             productName.text = product.title
             productPrice.text = product.price
+
+            itemView.setOnClickListener { itemClick(product) }
 
         }
 

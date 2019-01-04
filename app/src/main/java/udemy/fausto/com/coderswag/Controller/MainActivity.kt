@@ -33,8 +33,6 @@ class MainActivity : AppCompatActivity() {
             productIntent.putExtra(EXTRA_CATEGORY, category.title)
             startActivity(productIntent)
 
-
-
             }
 
         categoryListView.adapter = adapter
