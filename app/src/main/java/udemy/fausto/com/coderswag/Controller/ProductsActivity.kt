@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_products.*
 import udemy.fausto.com.coderswag.Adapters.ProductsAdapter
 import udemy.fausto.com.coderswag.R
@@ -32,9 +33,16 @@ class ProductsActivity : AppCompatActivity() {
         }
 
 
+        val screenSize = resources.configuration.screenWidthDp
+        if (screenSize > 720) {
+            spanCount = 3
+        }
+        
+
+
 
         val layoutManager = GridLayoutManager(this, spanCount)
-        productsListView.layoutManager = layoutManager
+        productsListView.layoutManager = layoutManager as RecyclerView.LayoutManager?
         productsListView.adapter = adapter
 
 
