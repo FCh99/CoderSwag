@@ -22,7 +22,8 @@
                 android:name=".Controller.ProductsActivity"
                 android:screenOrientation="fullSensor">
         </activity>
-        <activity android:name=".Controller.DetailActivity">
+        <activity android:name=".Controller.DetailActivity"
+                  android:screenOrientation="fullSensor">
         </activity>
     </application>
 

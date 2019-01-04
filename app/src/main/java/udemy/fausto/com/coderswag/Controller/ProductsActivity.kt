@@ -1,5 +1,6 @@
 package udemy.fausto.com.coderswag.Controller
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -24,7 +25,24 @@ class ProductsActivity : AppCompatActivity() {
         //println("-------->")
         //println(categoryType)
 
-        adapter = ProductsAdapter(this, DataService.getProducts(categoryType))
+        adapter = ProductsAdapter(this, DataService.getProducts(categoryType)) {product ->
+
+            //println("----clicked---->")
+            //println(product.title)
+
+            // send product OBJECT to DetailActivity
+
+           val product = product
+
+            val productDetailIntent = Intent(this, DetailActivity::class.java)
+            productDetailIntent.putExtra("product", product)
+            startActivity(productDetailIntent)
+
+
+
+
+
+        }
 
         var spanCount = 2
         val orientation = resources.configuration.orientation
